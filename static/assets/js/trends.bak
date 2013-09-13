@@ -1,0 +1,104 @@
+var update_axis;
+
+(function($, undefined) {
+"use strict";
+
+var
+  g_coords = [],
+  margin = {top: 20, right: 20, bottom: 30, left: 50},
+  width = 960 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom,
+  svg = undefined,
+  x = d3.time.scale().range([0, width]),
+  y = d3.scale.linear().range([height, 0]),
+  xAxis = d3.svg.axis().scale(x).orient("bottom"),
+  yAxis = d3.svg.axis().scale(y).orient("left"),
+  startYear = 1990,
+
+  line = d3.svg.line()
+    .interpolate("basis")
+    .x(function(d, i) { return x(d.x); })
+    .y(function(d) { return y(d.y); });
+
+
+  update_axis = function() {
+    x.domain([
+        d3.time.format("%Y").parse(String(startYear)),
+        d3.max(g_coords, function(c) {
+          return d3.max(c, function(d) { return d.x; }) })
+    ]);
+    y.domain([
+        d3.min(g_coords, function(c) {
+          return d3.min(c, function(d) { return d.y; }) }),
+        d3.max(g_coords, function(c) {
+          return d3.max(c, function(d) { return d.y; }) })
+    ]);
+
+    d3.select("g.x-axis").remove();
+    svg.append('g')
+      .attr("class", "x-axis")
+      .attr("transform", "translate(0, " + height + ")")
+      .call(xAxis);
+    d3.select("g.y-axis").remove();
+    svg.append('g')
+      .attr("class", "y-axis")
+      .call(yAxis);
+
+    svg.selectAll(".data-path").remove();
+    svg.selectAll(".data-path")
+      .data(g_coords).enter()
+      .append("svg:path")
+      .attr("class", "data-path")
+      .attr("d", line)
+      .on("mouseover", function(d, i) {
+        d3.select(this).classed("current", true);
+      }).on("mouseout", function(d, i) {
+        d3.select(this).classed("current", false);
+      });
+      //.attr("country", countries[i][1])
+      //.attr("class", countries_regions[countries[i][1]]);
+  };
+
+  var add_keyword = function(keyword) {
+    $.getJSON("/trends/" + keyword, function(data) {
+      var coord = [];
+      for (var year in data.freq) {
+        if (year >= startYear) {
+          coord.push({
+            x: d3.time.format("%Y").parse(year),
+            y: data.freq[year]
+          });
+        }
+      }
+      g_coords.push(coord);
+    });
+  };
+
+  $(window).resize(function(e) {
+    var $el = $('#drawarea');
+  });
+
+  $('document').ready(function() {
+    svg = d3.select('#drawarea').append("svg:svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    $.getJSON("/trends/all", function(data) {
+      for (var i = 0; i < data.length; i++) {
+        var coord = [];
+        for (var year in data[i].freq) {
+          if (year >= startYear) {
+            coord.push({
+              x: d3.time.format("%Y").parse(year),
+              y: data[i].freq[year],
+            });
+          }
+        }
+        g_coords.push(coord);
+      }
+      update_axis();
+    });
+  });
+}(jQuery));

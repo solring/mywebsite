@@ -1,0 +1,99 @@
+/* Normalize */
+html {
+    overflow: hidden;
+}
+
+html, body, #drawarea {
+    height: 100%;
+}
+
+body {
+    background-color: #F5F8FF;
+}
+
+#drawarea {
+    position: relative;
+    left: 370px;
+    top: 145px;
+}
+
+#active-listing {
+    position: fixed;
+    top: 80px;
+    left: 420px;
+    width: 800px;
+    height: 120px;
+    padding: 7px;
+
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+
+    background-color: #FFFFCF;
+    border: 1px solid #ccc;
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 5px;
+    margin: 0px 3px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    font-weight: bold;
+    opacity: 0.5;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.tag:hover {
+    opacity: 1.0;
+}
+
+.tag.highlight {
+    opacity: 1.0;
+}
+
+.tag .close {
+    position: relative;
+    top: -2px;
+    line-height: 20px;
+    padding: 0px 2px;
+    color: white;
+    opacity: 0.6;
+}
+
+.tag .close:hover {
+    opacity: 0.9;
+}
+
+.axis path {
+    stroke: black;
+    fill: none;
+}
+
+.data-path {
+    stroke-width: 1.0;
+    fill: none;
+    opacity: 0.4;
+}
+
+.data-path.current {
+    stroke-width: 2.0;
+    opacity: 1.0;
+}
+
+line {
+    stroke: black;
+}
+
+text {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 11px;
+}
+
+.keyword {
+    float: left;
+    padding-right: 5px;
+}

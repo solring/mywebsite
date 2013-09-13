@@ -1,0 +1,74 @@
+.link { 
+    stroke: #000;
+    stroke-opacity: 0.8;
+}
+
+.path {
+    stroke: #FF0000;
+    stroke-opacity: 0.8;
+}
+
+.fade-out {
+    opacity: 0.5;
+}
+
+#search{
+    font: 20pt helvetica neue;
+    color: #666;
+}
+
+text {
+    font: 10px sans-serif;
+    pointer-events: none;
+}
+
+
+text.shadow {
+    stroke: #fff;
+    stroke-width: 3px;
+    stroke-opacity: .8;
+}
+
+html {
+    overflow: hidden;
+}
+
+html, body, #drawarea {
+    height: 100%;
+}
+
+body {
+    background-color: #F5F8FF;
+    padding-top: 40px;
+}
+
+#control {
+    position: fixed;
+    right: 0px;
+    top: 200px;
+    width: 100px;
+    height: 200px;
+    background-color: #FFFFCF;
+    border: 1px solid #ccc;
+
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+#size-slider {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    height: 150px;
+}
+
+#distance-slider {
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    height: 150px;
+}
