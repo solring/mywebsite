@@ -15,7 +15,19 @@ class SolringWebsite < Sinatra::Base
   get '/' do
 	fd = File.open(File.dirname(__FILE__)+'/static/res/pic.list')
 	lines = fd.readlines()
-    erb :index, :locals => {:pictures => lines}
+    pics = []
+    lines.each do |line|
+        token = line.split(',')
+        pics << {:id => token[0], :title => token[1], :url => token[2]}
+    end
+    erb :index, :locals => {:pictures => pics}
+  end
+
+  get '/:pid.json' do
+    pid = params[:pid]
+    fd = File.open(File.dirname(__FILE__)+"/static/res/#{pid}.json")
+    fd.read()
+    
   end
 
   run! if app_file == $0

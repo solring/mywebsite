@@ -8,42 +8,51 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
-
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/assets/css/project.css" rel="stylesheet">
 
+    <script src="/assets/js/jquery-1.10.1.min.js"></script>
     <script src="/assets/js/head.min.js"></script>
-
-
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <%= yield_content :headjs %>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
+<script>
+console.log('script begin');
+  $('document').ready( function(){
+    console.log("in document.ready:");
+    $('#testblock').on('click', function(){
+        console.log('test block clicked');
+        alert( "Handler for .click() called." );
+    });
+  });
+console.log('script end');
+</script>
 
   </head>
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">Solring</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">Solring</a>
+          </div>
+          <div class="collapse navbar-collapse" id="main-menu-collapse">
+            <ul class="nav navbar-nav">
               <li><a href="/">Home</a></li>
               <li><a href="/education">Educations</a></li>
 			  <li><a href="/project">Projects</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
-      </div>
-    </div>
+    </nav>
 
     <%= yield %>
 

@@ -1,48 +1,54 @@
-<div class="container">
-
-<!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero-unit" >
-  <h1>Solring Lin...</h1>
-<p>Life is a struggle.</p>
-<p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
-
-<div class="page-header">
-
-
-<h1>Projects</h1>
-</div>
-
-<ul class="thumbnails">
-<% pictures.each do |pic| %>
-  <li class="span4">
-  	<a href="#" class="thumpnail">
-  	  <img src="<%= pic%>">
-  	</a>
-  </li>
+<% content_for :headjs do %>
+    <script src="/assets/js/project.js"></script>
 <% end %>
 
-</ul>
+<div class="container">
+    <div class="jumbotron" style="color: #fff; background-image: url('/assets/img/frontpage.jpg'); background-repeat: no-repeat; ">
+        <h1>Chi-Hsuan Lin / Solring Lin</h1>
+        <h2>Department of Computer Science, National Taiwan University</h2>
+        <h2>Taipei, Taiwan</h2>
+        <h2>sherry12714@gmail.com</h2>
+        <br>
+        <h2>Keywords:</h2>
+        <p>Android, Power Saving of Mobile Devices, F2E</p>
+        <p>C, Java, Python, Ruby, Linux</p>
+        <p>Photoshop, Illustrator</p>
+        <br>
+        <h3>Designer inside.</h3>
+    </div>
+</div>
 
 
 
-<!-- Example row of columns -->
-<div class="row">
-<div class="span4">
-  <h2>PaperRank</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-  <p><a class="btn" href="/paperrank">View details &raquo;</a></p>
+<div class="container" id="projects">
+    <div class="page-header"><h1>Projects</h1></div>
+    <div class="row">
+    <% pictures.each do |pic| %>
+        <div class="col-xs-4">
+            <div class="mythumbnail" id=<%= pic[:id] %>>
+                <h2><%= pic[:title] %></h2>
+                <img src="<%= pic[:url]%>" class="img-responsive">
+            </div>
+        </div>
+    <% end %>
+    </div>
 </div>
-<div class="span4">
-  <h2>AuthorRank</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-  <p><a class="btn" href="/authorrank">View details &raquo;</a></p>
-</div>
-<div class="span4">
-  <h2>Trends</h2>
-  <p></p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-  <p><a class="btn" href="/trends">View details &raquo;</a></p>
-</div>
-</div>
+
+
+<div class="container">
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h3 class="modal-title">Heading</h3>
+                    <div id="toollist"></div>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
