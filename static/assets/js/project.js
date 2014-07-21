@@ -25,13 +25,13 @@ $('document').ready(function(){
 
             tmp = "";
             for(var i=0; i<tools.length; i++){
-                tmp += "<span class=\"label label-default\">"+tools[i]+"</span> ";
+                tmp += "<span class=\"label label-success\">"+tools[i]+"</span> ";
             }
             $('#toollist').empty().append(tmp);
             
             body.append('<p>'+data['description']+'</p>');
             for(var i=0; i<pics.length; i++){
-                body.append("<img src=\""+pics[i]+"\" class=\"img-responsive\">");
+                body.append("<img src=\""+pics[i]+"\" class=\"img-responsive thumbnail\">");
             }
         });
 

@@ -1,5 +1,5 @@
 {
-    "album": "",
+    "album": "https://plus.google.com/photos/102143632819210977611/albums/5711259020049936625?banner=pwa",
     "description": "2012 Senior Schoolbook of Department of Computer Science, National Tsing Hua University.",
     "date": "2012",
     "tools": [
@@ -7,6 +7,8 @@
         "Illustrator"
     ],
     "pictures": [
-        "https://lh4.googleusercontent.com/-dL1cz0bLGm8/U8Im3lv9wkI/AAAAAAAACgI/Qf2h3goFi0M/w903-h645-no/yearbookP1.jpg"
+        "https://lh5.googleusercontent.com/-5IPzbp_bLfE/U8oJxVCMBVI/AAAAAAAACi0/afH2f5cj8Sk/w778-h556-no/yearbookP1.jpg",
+        "https://lh6.googleusercontent.com/-KICpyaNGVpE/U802ALVJOrI/AAAAAAAACkE/Q0Iy5d5z7sk/w942-h670-no/schoolbook-mei.png",
+        "https://lh6.googleusercontent.com/-s4P5BrUZqHk/U803e_sOmcI/AAAAAAAACkU/uZu3tnbz7IY/w937-h670-no/schoolbook-mei2.png"
     ]  
 }
